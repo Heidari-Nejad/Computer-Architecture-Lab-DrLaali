@@ -1,0 +1,107 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "c:\iverilog\lib\ivl\system.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "c:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "c:\iverilog\lib\ivl\va_math.vpi";
+S_000000000129bb90 .scope module, "test" "test" 2 3;
+ .timescale 0 0;
+v00000000012961c0_0 .var "inst", 31 0;
+v0000000001296260_0 .net "out", 63 0, L_0000000000898f90;  1 drivers
+S_000000000129bd20 .scope module, "im_g" "imm_gen" 2 7, 3 1 0, S_000000000129bb90;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "inst";
+    .port_info 1 /OUTPUT 64 "out";
+L_0000000000898f90 .functor BUFZ 64, v0000000001296120_0, C4<0000000000000000000000000000000000000000000000000000000000000000>, C4<0000000000000000000000000000000000000000000000000000000000000000>, C4<0000000000000000000000000000000000000000000000000000000000000000>;
+v000000000129beb0_0 .net "inst", 31 0, v00000000012961c0_0;  1 drivers
+v000000000129e360_0 .net "out", 63 0, L_0000000000898f90;  alias, 1 drivers
+v0000000001296120_0 .var "temp", 63 0;
+E_0000000001298640 .event edge, v000000000129beb0_0;
+    .scope S_000000000129bd20;
+T_0 ;
+    %wait E_0000000001298640;
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 7, 0, 2;
+    %cmpi/e 35, 0, 7;
+    %jmp/0xz  T_0.0, 4;
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 1, 31, 6;
+    %replicate 53;
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 6, 25, 6;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 5, 7, 4;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v0000000001296120_0, 0, 64;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 7, 0, 2;
+    %cmpi/e 99, 0, 7;
+    %jmp/0xz  T_0.2, 4;
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 1, 31, 6;
+    %replicate 53;
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 1, 7, 4;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 6, 25, 6;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 4, 8, 5;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v0000000001296120_0, 0, 64;
+    %jmp T_0.3;
+T_0.2 ;
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 7, 0, 2;
+    %cmpi/e 3, 0, 7;
+    %jmp/0xz  T_0.4, 4;
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 1, 31, 6;
+    %replicate 53;
+    %load/vec4 v000000000129beb0_0;
+    %parti/s 11, 20, 6;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v0000000001296120_0, 0, 64;
+    %jmp T_0.5;
+T_0.4 ;
+    %pushi/vec4 4294967295, 4294967295, 32;
+    %concati/vec4 4294967295, 4294967295, 32;
+    %store/vec4 v0000000001296120_0, 0, 64;
+T_0.5 ;
+T_0.3 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_000000000129bb90;
+T_1 ;
+    %vpi_call 2 11 "$monitor", "inst: %b, out: %b, time %t", v00000000012961c0_0, v0000000001296260_0, $time {0 0 0};
+    %vpi_call 2 12 "$dumpfile", "shift_register.vcd" {0 0 0};
+    %vpi_call 2 13 "$dumpvars", 32'sb00000000000000000000000000000000, S_000000000129bb90 {0 0 0};
+    %delay 1, 0;
+    %pushi/vec4 3349196899, 0, 32;
+    %store/vec4 v00000000012961c0_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 899723491, 0, 32;
+    %store/vec4 v00000000012961c0_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 899724803, 0, 32;
+    %store/vec4 v00000000012961c0_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 3047208835, 0, 32;
+    %store/vec4 v00000000012961c0_0, 0, 32;
+    %vpi_call 2 24 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "imm_gen_tb.v";
+    "./../imm_gen.v";

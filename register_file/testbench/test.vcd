@@ -1,0 +1,79 @@
+$date
+	Tue Dec 29 02:12:19 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test $end
+$var wire 64 ! readData2 [63:0] $end
+$var wire 64 " readData1 [63:0] $end
+$var reg 1 # clk $end
+$var reg 5 $ readReg1 [4:0] $end
+$var reg 5 % readReg2 [4:0] $end
+$var reg 1 & regWrite $end
+$var reg 64 ' writeData [63:0] $end
+$var reg 5 ( writeReg [4:0] $end
+$scope module register_file_test $end
+$var wire 1 # clk $end
+$var wire 5 ) readReg1 [4:0] $end
+$var wire 5 * readReg2 [4:0] $end
+$var wire 1 & regWrite $end
+$var wire 64 + writeData [63:0] $end
+$var wire 5 , writeReg [4:0] $end
+$var reg 64 - readData1 [63:0] $end
+$var reg 64 . readData2 [63:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx .
+bx -
+bx ,
+bx +
+bx *
+bx )
+bx (
+bx '
+x&
+bx %
+bx $
+0#
+bx "
+bx !
+$end
+#1
+1#
+b11011101100010001101011110000000011011101100010001101011110010 '
+b11011101100010001101011110000000011011101100010001101011110010 +
+b1101 (
+b1101 ,
+1&
+#2
+0#
+b1101110110001000110101011000101001101110110001010110100011000 '
+b1101110110001000110101011000101001101110110001010110100011000 +
+b1110 (
+b1110 ,
+#3
+1#
+#4
+0#
+#5
+1#
+#6
+0#
+#7
+b1101110110001000110101011000101001101110110001010110100011000 !
+b1101110110001000110101011000101001101110110001010110100011000 .
+b11011101100010001101011110000000011011101100010001101011110010 "
+b11011101100010001101011110000000011011101100010001101011110010 -
+1#
+b1110 %
+b1110 *
+b1101 $
+b1101 )
+0&

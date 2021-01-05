@@ -1,0 +1,42 @@
+$date
+	Tue Dec 29 01:42:47 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test $end
+$var wire 32 ! instruction_out [31:0] $end
+$var reg 6 " address [5:0] $end
+$var reg 32 # instruction_in [31:0] $end
+$var reg 1 $ rd $end
+$scope module instruction_memory_test $end
+$var wire 6 % address [5:0] $end
+$var wire 32 & instruction_in [31:0] $end
+$var wire 1 $ rd $end
+$var reg 32 ' instruction_out [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx '
+bx &
+bx %
+x$
+bx #
+bx "
+bx !
+$end
+#10
+b110101100000110011010101111000 #
+b110101100000110011010101111000 &
+b1100 "
+b1100 %
+0$
+#20
+b110101100000110011010101111000 !
+b110101100000110011010101111000 '
+1$

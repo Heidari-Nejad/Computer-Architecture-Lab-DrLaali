@@ -1,0 +1,21 @@
+$date
+	Sat Dec 26 20:16:36 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test $end
+$var wire 1 ! clk_out $end
+$var reg 1 " enable $end
+$var reg 1 # puls_period $end
+$var reg 1 $ start_value $end
+$scope module clock $end
+$var wire 1 " enable $end
+$var wire 1 # puls_period $end
+$var wire 1 $ start_value $end
+$var reg 1 ! clk_out $end
+$upscope $end
+$upscope $end
