@@ -1,15 +1,9 @@
 module d_flip_flop(D, clk, reset, Q, Qbar);
-    input wire D;
-    input wire clk;
-    input wire reset;
-    output reg Q;
-    output reg Qbar;
+    input wire D, clk, reset;
+    output reg Q, Qbar;
 
     always @(posedge clk) begin
-        if(reset == 1'b1)
-            Q = 0;
-        else
-            Q = D;
-        Qbar = ~Q;
+      Q = D & ~reset;
+      Qbar = ~Q;
     end
 endmodule

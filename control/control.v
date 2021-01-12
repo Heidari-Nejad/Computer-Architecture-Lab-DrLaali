@@ -12,9 +12,10 @@ module control (Opc, ALUsrc, MemToReg, RegWrite, MemRead, MemWrite, Branch, AluO
 
   always @ ( Opc ) begin
 
-    // R-format
-    if (Opc[6] == 0 && Opc[5] == 1 && Opc[4] == 1 && Opc[3] == 0 &&
-      Opc[2] == 0 && Opc[1] == 1 && Opc[0] == 1) begin
+  // fix this
+
+    // R-format 0110011
+    if (Opc == 7'b0110011) begin
       ALUsrc   = 0;
       MemToReg = 0;
       RegWrite = 1;
@@ -25,9 +26,8 @@ module control (Opc, ALUsrc, MemToReg, RegWrite, MemRead, MemWrite, Branch, AluO
       AluOp0   = 0;
     end
 
-    // ld
-    else if (Opc[6] == 0 && Opc[5] == 0 && Opc[4] == 0 && Opc[3] == 0 &&
-      Opc[2] == 0 && Opc[1] == 1 && Opc[0] == 1) begin
+    // ld 0000011
+    else if (Opc[6] == 7'b0000011) begin
       ALUsrc   = 1;
       MemToReg = 1;
       RegWrite = 1;
@@ -38,9 +38,8 @@ module control (Opc, ALUsrc, MemToReg, RegWrite, MemRead, MemWrite, Branch, AluO
       AluOp0   = 0;
     end
 
-    // sd
-    else if (Opc[6] == 0 && Opc[5] == 1 && Opc[4] == 0 && Opc[3] == 0 &&
-      Opc[2] == 0 && Opc[1] == 1 && Opc[0] == 1) begin
+    // sd 0100011
+    else if (Opc[6] == 7'b0100011) begin
       ALUsrc   = 1;
       MemToReg = x;
       RegWrite = 0;
@@ -51,9 +50,8 @@ module control (Opc, ALUsrc, MemToReg, RegWrite, MemRead, MemWrite, Branch, AluO
       AluOp0   = 0;
     end
 
-    // beq
-    else if (Opc[6] == 1 && Opc[5] == 1 && Opc[4] == 0 && Opc[3] == 0 &&
-      Opc[2] == 0 && Opc[1] == 1 && Opc[0] == 1) begin
+    // beq 1100011
+    else if (Opc[6] == 7'b1100011) begin
       ALUsrc   = 0;
       MemToReg = x;
       RegWrite = 0;

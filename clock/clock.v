@@ -1,22 +1,17 @@
-module clk (enable, start_value, puls_period, clk_out);
-  input wire enable;
-  input wire start_value;
-  input wire puls_period;
+module clk (enable, clk_out);
+  input enable;
   output reg clk_out;
+  parameter PULS_PERIOD = 1;
 
   always @ ( enable ) begin
     if (enable) begin
-      clk_out = start_value;
+      clk_out = 1;
     end else begin
       clk_out = 0;
     end
 
     while ( 1 ) begin
-      if (enable) begin
-        #(puls_period) clk_out = ~clk_out;
-      end else begin
-        #(puls_period) clk_out = 0;
-      end
+      #(PULS_PERIOD) clk_out = ~clk_out;
     end
   end
 endmodule // clk

@@ -1,4 +1,4 @@
-module alu(input0, input1, aluControl,  res, zero);
+module alu(input0, input1, aluControl, res, zero);
     input  [63:0] input0, input1;
     input  [3:0] aluControl;
     output reg [63:0] res;

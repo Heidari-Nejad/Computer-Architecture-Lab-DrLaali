@@ -23,7 +23,6 @@ module register_file(regWrite, readReg1, readReg2, writeReg, writeData, readData
 
   always @(posedge clk) begin
     if (regWrite == 1) begin
-      $display("here in the always (writeData : %b)", writeData);
       registerFile[writeReg] = writeData;
     end
   end
